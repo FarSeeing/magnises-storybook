@@ -348,16 +348,15 @@
   gulp.task('dev-server', function() {
     gulp.src('client')
       .pipe(webserver({
-            fallback: 'index.html',
-            livereload: {
-              enable: true,
-              filter: function(filePath, cb){
-                cb( !(/\.(sw[a-z])$/.test(filePath)) ) ;
-              }
-            },
-            directoryListing: false,
-            // open: sourcePath + 'index.html',
-          }));
+        fallback: 'index.html',
+        livereload: {
+          enable: true,
+          filter: function(filePath, cb){
+            cb( !(/\.(sw[a-z])$/.test(filePath)) ) ;
+          }
+        },
+        directoryListing: false,
+      }));
   });
 
 }());
