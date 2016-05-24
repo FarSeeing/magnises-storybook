@@ -10,7 +10,7 @@
     console.log('directive');
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/materialInput.html',
+      templateUrl: 'app/components/material-input/materialInput.html',
       scope: {},
       bindToController: {
         model: '=ngModel',

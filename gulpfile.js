@@ -98,10 +98,8 @@
     sass: {
       target: sourcePath + 'css',
       source: [
-        sourcePath + 'css/scss/*.scss',
-        sourcePath + 'css/*.scss',
+        sourcePath + 'css/**/*.scss',
         sourcePath + 'app/**/*.scss',
-        sourcePath + 'app/**/**/*.scss'
       ]
     }
   };
