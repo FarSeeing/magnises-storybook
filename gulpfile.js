@@ -5,6 +5,8 @@
   // Plugins
   // --------------------------------------------------------------------
 
+  var webserver   = require('gulp-server-livereload');
+
   var path        = require('path');
   var fs          = require('fs');
   var es          = require('event-stream');
@@ -61,7 +63,7 @@
   // Gulp config
   // --------------------------------------------------------------------
 
-  var sourcePath = './client/';
+  var sourcePath = 'client/';
   var vendorPath = sourcePath + 'vendor/';
 
   var bowerOptions = {
@@ -336,4 +338,26 @@
   		))
       .pipe(gulp.dest(config.sass.target));
   });
+
+  // --------------------------------------------------------------------
+  // dev-server 
+  // --------------------------------------------------------------------
+ 
+  gulp.task('server', ['dev-server']);
+  gulp.task('webserver', ['dev-server']);
+  gulp.task('dev-server', function() {
+    gulp.src('client')
+      .pipe(webserver({
+            fallback: 'index.html',
+            livereload: {
+              enable: true,
+              filter: function(filePath, cb){
+                cb( !(/\.(sw[a-z])$/.test(filePath)) ) ;
+              }
+            },
+            directoryListing: false,
+            // open: sourcePath + 'index.html',
+          }));
+  });
+
 }());
