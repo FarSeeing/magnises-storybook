@@ -54,10 +54,13 @@ Temporary Items
 #no index.html changed needed
 client/index.html
 
-#vim swap files 
+#vim swap files
 *.swn
 *.swo
 *.swp
 
 #logs
 *.log
+
+#JetBrains products configuration
+.idea/
