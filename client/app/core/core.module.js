@@ -25,7 +25,8 @@
       'ui.materialize',
       'ui.mask',
       'angularPayments',
-      'ngFileUpload'
+      'ngFileUpload',
+      'ng-showdown'
     ]);
 
 })();

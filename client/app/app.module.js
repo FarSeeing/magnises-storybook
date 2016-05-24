@@ -5,14 +5,14 @@
     .module('app', [
       /* Shared Modules */
       'app.core',
-      'app.widgets',
-      'app.layout',
+      'app.components',
+      //'app.layout',
       /* Content Modules */
-      'app.apply',
-      'app.login',
-      'app.landing',
-      'app.legal',
-      'app.faq'
+      //'app.apply',
+      //'app.login',
+      //'app.landing',
+      //'app.legal',
+      //'app.faq'
     ]);
 
 })();

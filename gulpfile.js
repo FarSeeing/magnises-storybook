@@ -91,10 +91,7 @@
             sourcePath + 'app/**/**/*.css'
           ],
           js: [
-            sourcePath + 'app/*.js',
-            sourcePath + 'app/**/*.js',
-            sourcePath + 'app/**/**/*.js',
-            sourcePath + 'app/**/**/**/*.js'
+            sourcePath + 'app/**.js',
           ]
         }
       }
@@ -120,38 +117,14 @@
 
   var build = {
     css: [
-      sourcePath + 'css/*.css',
       sourcePath + 'css/**/*.css',
-      sourcePath + 'css/**/**/*.css',
       sourcePath + 'app/**/*.css',
-      sourcePath + 'app/**/**/*.css',
-      sourcePath + 'app/**/**/**/*.css'
     ],
-    js: [
-      sourcePath + 'app/*.js',
-      sourcePath + 'app/**/*.js',
-      sourcePath + 'app/**/**/*.js',
-      sourcePath + 'app/**/**/**/*.js',
-      sourcePath + 'app/**/**/**/**/*.js'
-    ],
-  	html: [
-      sourcePath + 'app/**/*.html',
-  		sourcePath + 'app/**/**/*.html',
-      sourcePath + 'app/**/**/**/*.html',
-  	],
-    images: [
-      sourcePath + 'images/*.*',
-      sourcePath + 'images/**/*.*',
-      sourcePath + 'images/**/**/*.*'
-    ],
-    assets: [
-      sourcePath + 'assets/*.*',
-      sourcePath + 'assets/**/*.*',
-      sourcePath + 'assets/**/**/*.*'
-    ],
-    cssAssets: [
-      sourcePath + 'assets/*.css',
-    ]
+    js: sourcePath + 'app/**/*.js',
+  	html: sourcePath + 'app/**/*.html',
+    images: sourcePath + 'images/**/*.*',
+    assets: sourcePath + 'assets/**/*.*',
+    cssAssets: sourcePath + 'assets/*.css',
   };
 
   var dest = {

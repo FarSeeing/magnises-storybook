@@ -2,14 +2,14 @@
   'use strict';
 
   angular
-    .module('app.widgets')
+    .module('app.components')
     .directive('actionButton', actionButton);
 
   /* @ngInject */
   function actionButton() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/widgets/actionButton.html',
+      templateUrl: 'app/components/actionButton.html',
       scope: {},
       bindToController: {
         defaultMessage: '@',

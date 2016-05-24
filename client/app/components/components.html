@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col s3">
+      <h3> Story puke </h3>
+      <material-input type="text" name="storyFilter" label="search"> </material-input>
+      <input> </input>
+      <ul ng-repeat="component in vm.components">
+        <li>
+          <h4> {{component.name}} </h4>
+          <ul ng-repeat="story in component.stories">
+            <li>
+              {{story.name}}
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="col s9">
+      <div>
+        <iframe></iframe>
+      </div>
+      <div markdown-to-html="vm.components[vm.current].documentation">
+      </div>
+    </div>
+  </div>
+</div>

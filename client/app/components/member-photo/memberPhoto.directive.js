@@ -2,14 +2,14 @@
   'use strict';
 
   angular
-    .module('app.widgets')
+    .module('app.components')
     .directive('memberPhoto', memberPhoto);
 
   /* @ngInject */
   function memberPhoto() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/widgets/memberPhoto.html',
+      templateUrl: 'app/components/memberPhoto.html',
       scope: {},
       bindToController: {
         profileImage: '=ngModel',

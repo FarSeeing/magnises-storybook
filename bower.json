@@ -35,10 +35,15 @@
     "slick-carousel": "1.6.0",
     "ng-file-upload": "12.0.4",
     "ng-file-upload-shim": "12.0.4",
-    "ui-router-extras": "0.1.2"
+    "ui-router-extras": "0.1.2",
+    "showdown": "^1.4.1",
+    "ng-showdown": "^1.1.0"
   },
   "resolutions": {
     "angular": "1.5.5",
     "moment": "2.10.6"
+  },
+  "devDependencies": {
+    "ng-showdown": "^1.1.0"
   }
 }

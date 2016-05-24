@@ -17,6 +17,7 @@ $RECYCLE.BIN/
 # Project Files
 node_modules
 client/vendor
+dist
 
 # Windows shortcuts
 *.lnk
@@ -49,3 +50,11 @@ client/vendor
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#vim swap files 
+*.swn
+*.swo
+*.swp
+
+#logs
+*.log

@@ -6,7 +6,7 @@
     .config(AppConfig);
 
   /* @ngInject */
-  function AppConfig($compileProvider, $httpProvider, $locationProvider, $urlRouterProvider, $uiViewScrollProvider) {
+  function AppConfig($compileProvider, $httpProvider, $locationProvider, $urlRouterProvider, $uiViewScrollProvider, $showdownProvider) {
     //Performance Improvements
     $compileProvider.debugInfoEnabled(false);
 
@@ -21,7 +21,8 @@
     });
 
     $uiViewScrollProvider.useAnchorScroll();
-
+    
+    $showdownProvider.setOption()
   }
 
 })();

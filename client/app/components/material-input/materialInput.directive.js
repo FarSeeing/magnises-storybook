@@ -2,14 +2,15 @@
   'use strict';
 
   angular
-    .module('app.widgets')
+    .module('app.components')
     .directive('materialInput', materialInput);
 
   /* @ngInject */
   function materialInput() {
+    console.log('directive');
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/widgets/materialInput.html',
+      templateUrl: 'app/components/materialInput.html',
       scope: {},
       bindToController: {
         model: '=ngModel',

@@ -2,14 +2,14 @@
   'use strict';
 
   angular
-    .module('app.widgets')
+    .module('app.components')
     .directive('memberCardPocket', memberCardPocket);
 
   /* @ngInject */
   function memberCardPocket() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/widgets/memberCardPocket.html',
+      templateUrl: 'app/components/memberCardPocket.html',
       scope: {},
       bindToController: {
         firstName: '=',

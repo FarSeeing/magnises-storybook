@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.widgets')
+    .module('app.components')
     .directive('selectable', selectable);
 
   /* @ngInject */
@@ -10,7 +10,7 @@
     var directive = {
       restrict: 'E',
       transclude: true,
-      templateUrl: 'app/widgets/selectable.html',
+      templateUrl: 'app/components/selectable.html',
       scope: {},
       bindToController: {
         value: '=',
