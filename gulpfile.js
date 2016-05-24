@@ -84,14 +84,11 @@
       sources: {
         app: {
           css: [
-  					sourcePath + 'css/*.css',
             sourcePath + 'css/**/*.css',
-            sourcePath + 'css/**/**/*.css',
-            sourcePath + 'app/**/*.css',
-            sourcePath + 'app/**/**/*.css'
+            sourcePath + 'app/**/*.css'
           ],
           js: [
-            sourcePath + 'app/**.js',
+            sourcePath + 'app/**/*.js'
           ]
         }
       }
