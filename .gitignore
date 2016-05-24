@@ -51,6 +51,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+#no index.html changed needed
+client/index.html
+
 #vim swap files 
 *.swn
 *.swo
