@@ -17,6 +17,9 @@
   var plumber     = require('gulp-plumber');
   var notify      = require('gulp-notify');
   var changed 		= require('gulp-changed');
+  var connect     = require('gulp-connect');
+  var ngdoc       = require('gulp-ngdocs');
+  var glob        = require('glob');
 
   // Run sass alongside burbon (fastest way of sass compiling)
   var sass        = require('gulp-sass');
@@ -355,6 +358,57 @@
         },
         directoryListing: false,
       }));
+  });
+
+  gulp.task('ngdoc', ['connect'], function (callback) {
+    var files = bowerFiles(bowerOptions);
+
+    var options = {
+      html5Mode: true,
+      startPage: '/docs/api',
+      loadDefaults: {
+        angular: false,
+        angularAnimate: false
+      },
+      scripts: files.filter(function (file) {
+        return /\.js$/.test(file);
+      }),
+      styles: files.filter(function (file) {
+        return /\.css$/.test(file);
+      })/*.concat(config.inject.sources.app.css.reduce(function (files, regexp) {
+        return files.concat(glob.sync(regexp));
+      }, []))*/
+    };
+
+    del('./docs').then(function () {
+      gulp.src(config.inject.sources.app.js)
+        .pipe(angularSort())
+        .pipe(require('through2').obj(function (file, enc, done) {
+          options.scripts.push(file.path);
+          done();
+        }))
+        .on('data', function () {})
+        .on('end', function () {
+          gulp.src('./client/app/components/*/*.directive.js')
+            .pipe(ngdoc.process())
+            .pipe(gulp.dest('./docs'))
+            .on('end', function () {
+              gulp.src('./client/app/components/*/*.directive.js')
+                .pipe(ngdoc.process(options))
+                .pipe(gulp.dest('./docs'))
+                .on('end', callback);
+            });
+        });
+    });
+  });
+
+  gulp.task('connect', function () {
+    connect.server({
+      root: '.',
+      livereload: false,
+      fallback: 'docs/index.html',
+      port: 9001
+    });
   });
 
 }());

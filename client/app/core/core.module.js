@@ -17,7 +17,7 @@
       'ct.ui.router.extras.core',
       'permission',
       'permission.ui',
-      'anim-in-out',
+      //'anim-in-out',
       'uiRouterStyles',
       /* 3rd Party Modules */
       'angularMoment',
