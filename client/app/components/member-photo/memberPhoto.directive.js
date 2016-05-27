@@ -1,3 +1,25 @@
+/**
+ * @ngdoc directive
+ * @name app.components.directive:materialInput
+ * @restrict E
+ *
+ * @description
+ * member photo 
+ *
+ * @param {string=} ngModel profile image
+ * @param {string=} user user
+ * @param {string=} loading loading status
+ *
+ * @example
+ <example>
+   <file name="index.html">
+     <member-photo></member-photo>
+   </file>
+   <file name="script.js">
+   </file>
+ </example>
+*/
+
 (function () {
   'use strict';
 

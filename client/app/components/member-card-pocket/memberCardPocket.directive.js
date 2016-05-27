@@ -1,3 +1,22 @@
+/**
+ * @ngdoc directive
+ * @name app.components.directive:memberCardPocket
+ * @restrict E
+ *
+ * @description
+ * 
+ * @param {string=} firstName
+ * @param {string=} lastName
+ *
+ * @example
+ *
+ <example>
+   <file name="index.html">
+     <member-card-pocket firstName="Klekov" secondName="Klekovsky">
+     </member-card-pocket>
+   </file>
+ </example>
+*/
 (function () {
   'use strict';
 

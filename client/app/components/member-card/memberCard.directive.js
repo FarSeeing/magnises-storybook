@@ -1,3 +1,25 @@
+/**
+ * @ngdoc directive
+ * @name app.components.directive:materialInput
+ * @restrict E
+ *
+ * @description
+ *
+ * @param {string=} firstName
+ * @param {string=} lastName 
+ * @param {string=} [face="/images/manises-card-md.png"] path to face photo
+ *
+ * @example
+ *
+ <example>
+   <file name="index.html>
+     <member-card 
+       first-name="Glenjin" 
+       last-name="Korkovich">
+     </member-card>
+ </example>
+*/
+
 (function () {
   'use strict';
 
