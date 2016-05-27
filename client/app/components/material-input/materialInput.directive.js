@@ -11,9 +11,29 @@
    <example module="materialInputExample">
      <file name="index.html">
        <div ng-controller="Controller as ctrl">
-         <material-input>
+         <form>
+           <material-input
+             ng-model="ctrl.model"
+             type="text"
+             name="materialTextInput"
+             label="Label"
+             pattern="\d+"
+             placeholder="Placeholder"
+             min-length="1"
+             max-length="3"
+             required="true"
+             validate="true"
+             disabled="false"
+           >
 
-         </material-input>
+           </material-input>
+           <material-input
+             type="submit"
+             name="materialSubmitInput"
+           >
+
+           </material-input>
+         </form>
        </div>
      </file>
 
