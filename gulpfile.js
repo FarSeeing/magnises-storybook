@@ -393,6 +393,12 @@
             .pipe(ngdoc.process())
             .pipe(gulp.dest('./docs'))
             .on('end', function () {
+              options.scripts = options.scripts.map(function (filename) {
+                return filename.split(path.sep).join('/');
+              });
+              options.styles = options.styles.map(function (filename) {
+                return filename.split(path.sep).join('/');
+              });
               gulp.src('./client/app/components/*/*.directive.js')
                 .pipe(ngdoc.process(options))
                 .pipe(gulp.dest('./docs'))
