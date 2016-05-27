@@ -2,10 +2,21 @@
  * @ngdoc directive
  * @name app.components.directive:materialInput
  * @restrict E
- * @function
  *
  * @description
- * # Some description
+ * Input wrapper
+ *
+ * @param {string=} ngModel Passed to input inside as it is
+ * @param {string=} [type="text"] Passed to input inside as it is
+ * @param {string=} name Passed to input inside as it is
+ * @param {string=} label Passed to label inside as a text
+ * @param {string=} pattern Passed to input inside as it is
+ * @param {string=} placeholder Passed to input inside as it is
+ * @param {string=} minLength Passed to input ngMinLength inside as it is
+ * @param {string=} maxLength Passed to input ngMaxLength inside as it is
+ * @param {boolean=} [required=false] Passed to input inside as it is
+ * @param {boolean=} [validate=false] Passed to input inside as it is
+ * @param {boolean=} [disabled=false] Passed to input inside as it is
  *
  * @example
    <example module="materialInputExample">
@@ -40,7 +51,7 @@
      <file name="script.js">
        angular.module('materialInputExample', ['app'])
          .controller('Controller', function () {
-           
+
          });
      </file>
    </example>
