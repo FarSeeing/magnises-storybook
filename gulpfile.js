@@ -341,9 +341,9 @@
   });
 
   // --------------------------------------------------------------------
-  // dev-server 
+  // dev-server
   // --------------------------------------------------------------------
- 
+
   gulp.task('server', ['dev-server']);
   gulp.task('webserver', ['dev-server']);
   gulp.task('dev-server', function() {
@@ -394,10 +394,10 @@
             .pipe(gulp.dest('./docs'))
             .on('end', function () {
               options.scripts = options.scripts.map(function (filename) {
-                return filename.split(path.sep).join('/');
+                return path.relative(__dirname, filename);
               });
               options.styles = options.styles.map(function (filename) {
-                return filename.split(path.sep).join('/');
+                return path.relative(__dirname, filename);
               });
               gulp.src('./client/app/components/*/*.directive.js')
                 .pipe(ngdoc.process(options))
