@@ -1,3 +1,34 @@
+/**
+ * @ngdoc directive
+ * @name app.componnets.directive:selectable
+ * @restrict E
+ *
+ * @description
+ * 
+ * each time on click starts `toggleSelect()` script, it will make 
+ * `select` value be equated to `value` without `$watch`
+ *
+ * @param {string=} value passed to `select` on click
+ * @param {string=} selected current selected value
+ * @param {boolean=} checked check flag
+ * @param {string=} other does not use anywhere
+ *
+ * @example
+ *
+ <example>
+   <file name="index.html">
+     <b> value: </b>
+     <input ng-bind="val"></input>
+     <b> selected: </b>
+     <p> {{val}} </p>
+     <selectable
+       value="val"
+     >
+     </selectable>
+   </file>
+ </example>
+ *
+ */
 (function () {
   'use strict';
 

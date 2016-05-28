@@ -1,1 +1,7 @@
 <!-- EXAMPLE: Used in app.login/loginForm.html -->
+<input ng-init="someval=false" ng-model="someval"> </input>
+<action-button 
+  loading-state="someval"
+  default-message="action-button component"
+  error-message="oh no it is error occured"
+  success-message="got it !"> </action-button>

@@ -5,18 +5,19 @@
  *
  * @description
  *
- * @param {string=} firstName
- * @param {string=} lastName 
+ * @param {string=} firstName member's first name
+ * @param {string=} lastName member's last name
  * @param {string=} [face="/images/manises-card-md.png"] path to face photo
  *
  * @example
  *
  <example>
-   <file name="index.html>
+   <file name="index.html">
      <member-card 
        first-name="Glenjin" 
        last-name="Korkovich">
      </member-card>
+   </file>
  </example>
 */
 

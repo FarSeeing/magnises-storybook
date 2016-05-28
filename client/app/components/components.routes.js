@@ -7,7 +7,6 @@
 
   /* @ngInject */
   function AppConfig($stateProvider) {
-
     $stateProvider
       .state({
         name: 'components',
@@ -25,10 +24,25 @@
         name: 'components.actionButton',
         url: '/action-button',
         views: {
-          'main@': {
+          'component@components': {
             templateUrl: 'app/components/action-button/actionButton.doc.html',
             controller: 'ActionButtonDocController',
             controllerAs: 'vm'
+          },
+          'doc@components': {
+            templateUrl: 'app/components/action-button/actionButton.annotation.doc.html'
+          }
+        }
+      })
+      .state({
+        name: 'components.materialInput',
+        url: '/material-input',
+        views: {
+          'component@components': {
+            templateUrl: 'app/components/material-input/materialInput.doc.html'
+          },
+          'doc@components': {
+            templateUrl: 'app/components/material-input/materialInput.annotation.doc.html'
           }
         }
       });

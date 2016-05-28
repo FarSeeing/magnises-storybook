@@ -62,12 +62,12 @@
   angular
     .module('app.components')
     .directive('materialInput', materialInput);
-
+// 18      "materialize": "0.97.6", 
   /* @ngInject */
   function materialInput() {
     var directive = {
       restrict: 'E',
-      templateUrl: '/client/app/components/material-input/materialInput.html',
+      templateUrl: '/app/components/material-input/materialInput.html',
       scope: {},
       bindToController: {
         model: '=ngModel',

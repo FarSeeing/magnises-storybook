@@ -6,6 +6,7 @@
       /* Shared Modules */
       'app.core',
       'app.components',
+      'hc.marked',
       //'app.layout',
       /* Content Modules */
       //'app.apply',

@@ -80,7 +80,7 @@
   function actionButton() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/actionButton.html',
+      templateUrl: 'app/components/action-button/actionButton.html',
       scope: {},
       bindToController: {
         defaultMessage: '@',

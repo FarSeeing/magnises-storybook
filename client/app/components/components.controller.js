@@ -6,22 +6,21 @@
     .controller('ComponentsController', ComponentsController);
 
   /* @ngInject */
-  function ComponentsController() {
-    this.nothing = 'nothing at all';
-    this.current = 0;
-    this.components = [
-      {
-        name: "component",
-        documentation: "##component \n md _documentation_ \n- frst  \n- scnd  \n- thrd",
-        stories: [
-          {
-            name: "first story"
-          },
-          {
-            name: "second story"
-          }
-        ]
-      }
-    ];
+  function ComponentsController($state) {
+    var dm = this;
+    var root = 'components';
+    var rootHeader = new RegExp('^' + root + '\.');
+
+    dm.nothing = 'nothing at all';
+    dm.current = 0;
+    dm.components = $state.get().filter(function(state){
+      return rootHeader.test(state.name);
+    }).
+      map(function(state) {
+        var component = {};
+        component.name = state.name.replace(rootHeader, '');
+        component.url = '#/' + root + state.url;
+        return component; 
+      });
   }
 })();

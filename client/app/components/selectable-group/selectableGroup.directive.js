@@ -1,3 +1,40 @@
+/**
+ * @ngdoc directive
+ * @name app.components.directive:selectableGroup
+ * @restrict E
+ *
+ * @description
+ *
+ * group of selectable elements
+ *
+ * @param {object=} options group options
+ * @param {object[]} options.values `selectable`'s options
+ * @param {string} options.mainLable label of selectable group
+ * @param {string} options.values.label displayed selectable label, in case of falsy `options.values.value` used
+ * @param {string} options.values.value selectable value
+ * @param {string=} ngModel ???
+ *
+ * @example
+ *
+ <example>
+   <file name="index.html">
+     <selectable-group
+       options="
+       {
+         values: [
+           { label: "with label", value: "option with label" },
+           { value: "wihtout label" },
+           { value: "addition wihtou label" }
+         ],
+         mainLable: "label for group"
+       }"
+       ng-model=""
+     >
+     </selectable-group>
+   </file>
+ </example>
+ *
+ */
 (function () {
   'use strict';
 

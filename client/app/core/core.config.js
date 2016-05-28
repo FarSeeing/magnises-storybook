@@ -13,7 +13,7 @@
     $httpProvider.useApplyAsync(true);
 
     //If these walls could talk
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(false);
 
     $urlRouterProvider.otherwise(function($injector) {
       var $state = $injector.get('$state');

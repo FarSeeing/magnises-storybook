@@ -5,8 +5,8 @@
  *
  * @description
  * 
- * @param {string=} firstName
- * @param {string=} lastName
+ * @param {string=} firstName member's first name
+ * @param {string=} lastName member's last name
  *
  * @example
  *
