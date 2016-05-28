@@ -7,7 +7,7 @@
 - `server` / `webserver` / `dev-server` - start gulp-server-livereload
 - `ngdoc` - generate docs and serve by connect.server
 
-##Adding 
+##Adding documentation 
 
 `component` page contain all added to `components.route.js` documentation.  
 Documentation page consist from two parts for now:
