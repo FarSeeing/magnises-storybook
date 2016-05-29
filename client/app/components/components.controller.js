@@ -6,14 +6,19 @@
     .controller('ComponentsController', ComponentsController);
 
   /* @ngInject */
-  function ComponentsController($state) {
+  function ComponentsController($state, storyBook) {
     var dm = this;
     var root = 'components';
     var rootHeader = new RegExp('^' + root + '\.');
 
     dm.nothing = 'nothing at all';
     dm.current = 0;
-    dm.components = $state.get().filter(function(state){
+    
+
+    dm.chapters = storyBook.chapters;
+
+    //retriving from $state, and filtering
+    /*dm.components = $state.get().filter(function(state){
       return rootHeader.test(state.name);
     }).
       map(function(state) {
@@ -22,5 +27,6 @@
         component.url = '#/' + root + state.url;
         return component; 
       });
+     */
   }
 })();

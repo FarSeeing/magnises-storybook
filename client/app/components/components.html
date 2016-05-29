@@ -6,11 +6,11 @@
       <div id="components-tree" class="col s4">
         <h2> {{vm.title || 'stories'}} </h2>
         <ul>
-          <li ng-repeat="component in vm.components">
-            <a ng-href="{{component.url}}" >{{component.name}} </a>
+          <li ng-repeat="chapter in vm.chapters">
+            <h4>{{chapter.name}} </h4>
             <ul>
-              <li ng-repeat="story in component.stories">
-                {{story.name}}
+              <li ng-repeat="story in chapter.stories">
+                <a ng-href="{{story.url}}">{{story.name}}</a>
               </li>
             </ul>
           </li>

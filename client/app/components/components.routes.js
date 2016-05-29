@@ -6,7 +6,20 @@
     .config(AppConfig);
 
   /* @ngInject */
-  function AppConfig($stateProvider) {
+  function AppConfig($stateProvider, storyBookProvider) {
+    /*storyBookProvider.Story('newstory')
+      .add({
+        name:'pff',
+        templateUrl: 'app/components/action-button/actionButton.doc.html',
+        controller: 'ActionButtonDocController',
+        controllerAs: 'vm',
+        documentationUrl: 'app/components/action-button/actionButton.annotation.doc.html'})
+      .add({
+        name:'pffo',
+        templateUrl: 'app/components/action-button/actionButton.doc.html',
+        controller: 'ActionButtonDocController',
+        documentationUrl: 'app/components/action-button/actionButton.annotation.doc.html'})
+      .publish();*/
     $stateProvider
       .state({
         name: 'components',
@@ -18,8 +31,10 @@
             controllerAs: 'vm'
           }
         }
-      })
+      });
       //An example of a component state, where components is the child of that state
+      //example in action-button's component directory
+      /*
       .state({
         name: 'components.actionButton',
         url: '/action-button',
@@ -46,6 +61,7 @@
           }
         }
       });
+     */
   }
 
 })();
