@@ -13,10 +13,15 @@
 Documentation page consist from two parts for now:
  - `component@components` route contain template and controller for demonstration
  - `doc@components` route contain documentation in html (it is possible to add mardown
-in `<marked>` tag for now)
+in `<marked>` tag for now) Wrapper use template:
 
-routeProvider `storyBook.provider.js` added, example of usage you can see in 
-./client/app/components/action-button/actionButton.doc.js 
+```html
+  <div marked file="documentationUrl"> </div>
+```
+so documentationUrl shoud provide path to markdown file
+
+routeProvider wrapper `storyBook.provider.js` added. Example of usage you can see in 
+./client/app/components/action-button/actionButton.doc.js. Here is some description:
 
 ```js
   angular.module('app.components')
