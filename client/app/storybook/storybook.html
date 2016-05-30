@@ -1,0 +1,41 @@
+<header>
+</header>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id="components-tree" class="col s4">
+        <h2> {{vm.title || 'stories'}} </h2>
+        <div class="input-field"> 
+          <input 
+            placeholder="enter query"
+            id="sb-query" 
+            type="text"
+            ng-model="query">
+          </input>
+          <label for="sb-query"> search </label>
+        </div> 
+        <ul>
+          <li ng-repeat="chapter in vm.chapters" >
+            <div ng-if="(chapter.stories | filter:query).length > 0 "> 
+            <h4> {{chapter.name}} </h4>
+            <ul>
+              <li ng-repeat="story in chapter.stories | filter:query">
+                <a ng-href="{{story.url}}">{{story.name}}</a>
+              </li>
+            </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+        <div class="col s8">
+          <ui-view name="component"></ui-view>
+          <div class="row">
+            <ui-view name="doc"></ui-view>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<footer>
+</footer>
