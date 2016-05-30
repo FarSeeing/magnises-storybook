@@ -11,9 +11,6 @@
     var root = 'components';
     var rootHeader = new RegExp('^' + root + '\.');
 
-    dm.nothing = 'nothing at all';
-    dm.current = 0;
-    
     dm.chapters = storyBook.chapters;
 
     //retriving from $state, and filtering

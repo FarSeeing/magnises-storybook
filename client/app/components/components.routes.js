@@ -6,7 +6,8 @@
     .config(AppConfig);
 
   /* @ngInject */
-  function AppConfig($stateProvider, storyBookProvider) {
+  function AppConfig($stateProvider, $locationProvider, storyBookProvider) {
+    $locationProvider.html5Mode({ enabled: true, requireBase: false });
     /*storyBookProvider.Story('newstory')
       .add({
         name:'pff',

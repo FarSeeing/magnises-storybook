@@ -47,16 +47,17 @@
                   url: story.url,
                   views: {
                     'component@components': {
-                      templateUrl: story.templateUrl,
-                      controller: story.controller,
-                      controllerAs: story.controllerAs ? story.controllerAs :'vm'
+                      template: '<iframe src="index.html?' +
+                      '?templateUrl=' + story.templateUrl +
+                      '&controller=' + story.controller +
+                      '&controllerAs=' + (story.controllerAs ? story.controllerAs :'vm') + '">'
                     },
                     'doc@components': {
                       template: '<div marked ng-include="\'' + story.documentationUrl + '\'"></marked>'
                     }
                   }
                 });
-              story.url =  '#/components' + story.url;
+              story.url =  '/components' + story.url;
             });
           };
         }
