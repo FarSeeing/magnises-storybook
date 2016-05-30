@@ -28,7 +28,10 @@
           'main@': {
             templateUrl: 'app/components/components.html',
             controller: 'ComponentsController',
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+            data: {
+              css: 'vendor/Materialize/dist/css/materialize.min.css'
+            }
           }
         }
       });

@@ -5,14 +5,20 @@
     <div class="row">
       <div id="components-tree" class="col s4">
         <h2> {{vm.title || 'stories'}} </h2>
+        <material-input 
+          label="filter" 
+          ng-model="query">
+        </material-input>
         <ul>
-          <li ng-repeat="chapter in vm.chapters">
-            <h4>{{chapter.name}} </h4>
+          <li ng-repeat="chapter in vm.chapters" >
+            <div ng-if="(chapter.stories | filter:query).length > 0 "> 
+            <h4> {{chapter.name}} </h4>
             <ul>
-              <li ng-repeat="story in chapter.stories">
+              <li ng-repeat="story in chapter.stories | filter:query">
                 <a ng-href="{{story.url}}">{{story.name}}</a>
               </li>
             </ul>
+            </div>
           </li>
         </ul>
       </div>

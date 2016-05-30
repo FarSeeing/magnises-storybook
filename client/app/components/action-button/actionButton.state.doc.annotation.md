@@ -1,4 +1,3 @@
-<marked>
 Some documentation for `action-button`
 --------------------------------------
 It is very simple to use this components,
@@ -22,4 +21,3 @@ def some_python_function:
   print('hello')
 
 ```
-</marked>
