@@ -80,17 +80,12 @@
   <script src="vendor/ui-router-extras/release/ct-ui-router-extras.js"></script>
   <script src="vendor/showdown/dist/showdown.js"></script>
   <script src="vendor/ng-showdown/dist/ng-showdown.js"></script>
+  <script src="vendor/marked/lib/marked.js"></script>
   <script src="vendor/angular-localforage/dist/angular-localForage.js"></script>
+  <script src="vendor/angular-marked/dist/angular-marked.js"></script>
   <!-- endinject -->
 
   <!-- inject:js -->
-  <script src="app/core/core.module.js"></script>
-  <script src="app/services/user/user.service.js"></script>
-  <script src="app/services/user/user.doc.controller.js"></script>
-  <script src="app/services/change/change.service.js"></script>
-  <script src="app/services/change/change.doc.controller.js"></script>
-  <script src="app/services/auth/auth.service.js"></script>
-  <script src="app/services/auth/auth.doc.controller.js"></script>
   <script src="app/components/selectable-group/selectableGroup.doc.controller.js"></script>
   <script src="app/components/components.module.js"></script>
   <script src="app/components/selectable-group/selectableGroup.directive.js"></script>
@@ -104,8 +99,22 @@
   <script src="app/components/member-card/memberCard.directive.js"></script>
   <script src="app/components/material-input/materialInput.doc.controller.js"></script>
   <script src="app/components/material-input/materialInput.directive.js"></script>
+  <script src="app/components/action-button/actionButton.doc.js"></script>
   <script src="app/components/action-button/actionButton.doc.controller.js"></script>
   <script src="app/components/action-button/actionButton.directive.js"></script>
+  <script src="app/components/storyBook.provider.js"></script>
+  <script src="app/components/examples.routes.js"></script>
+  <script src="app/components/example.directive.js"></script>
+  <script src="app/components/example.controller.js"></script>
+  <script src="app/components/components.routes.js"></script>
+  <script src="app/components/components.controller.js"></script>
+  <script src="app/core/core.module.js"></script>
+  <script src="app/services/user/user.service.js"></script>
+  <script src="app/services/user/user.doc.controller.js"></script>
+  <script src="app/services/change/change.service.js"></script>
+  <script src="app/services/change/change.doc.controller.js"></script>
+  <script src="app/services/auth/auth.service.js"></script>
+  <script src="app/services/auth/auth.doc.controller.js"></script>
   <script src="app/blocks/router/router.module.js"></script>
   <script src="app/blocks/logger/logger.module.js"></script>
   <script src="app/blocks/logger/promise-logger.service.js"></script>
@@ -120,8 +129,6 @@
   <script src="app/core/core.router.config.js"></script>
   <script src="app/core/core.constants.js"></script>
   <script src="app/core/core.config.js"></script>
-  <script src="app/components/components.routes.js"></script>
-  <script src="app/components/components.controller.js"></script>
   <script src="app/app.module.js"></script>
   <!-- endinject -->
 

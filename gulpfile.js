@@ -94,7 +94,8 @@
           ],
           js: [
             sourcePath + 'app/**/*.js'
-          ]
+          ],
+          docs: sourcePath + 'app/components/*/*.doc.js'
         }
       }
     },
@@ -349,7 +350,7 @@
   gulp.task('dev-server', function() {
     gulp.src('client')
       .pipe(webserver({
-        fallback: 'index.html',
+        fallback: 'storybook.html',
         livereload: {
           enable: true,
           filter: function(filePath, cb){
@@ -415,6 +416,16 @@
       fallback: 'docs/index.html',
       port: 9001
     });
+  });
+  
+  gulp.task('docs:inject', function () {
+    return gulp.src(config.inject.target)
+      .pipe(plumber(onError))
+      .pipe(inject(
+        gulp.src(config.inject.sources.app.docs, {read: false}),
+        {relative: true}
+      ))
+      .pipe(gulp.dest(sourcePath + 'storybook.html'));
   });
 
 }());
