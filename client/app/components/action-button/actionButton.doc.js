@@ -1,5 +1,5 @@
 ;(function(){
-  angular.module('app.components')
+  angular.module('storybook')
   .config(
     /* @ngInject */
     function(storyBookProvider){
