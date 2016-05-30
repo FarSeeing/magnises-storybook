@@ -6,13 +6,13 @@
         restrict: 'E',
         controller: function() {
         },
-        controlelrAs: 'vm',
+        controllerAs: 'vm',
         template: '<iframe id="elframe"></iframe>',
         scope: {},
         link: function(scope, element, attrs) {
           var iframe = element.find('iframe')[0];
           iframe.src = element.attr('src');
-          
+
          /* console.log(iframe.contentWindow.document.body);
           iframe.onload = function(){
             scope.$watch(

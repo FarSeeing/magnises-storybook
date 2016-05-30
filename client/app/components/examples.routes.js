@@ -14,8 +14,9 @@
         views: {
           'main@': {
             template:
-              '<div example-wrap="example.controller + \' as \' + example.controllerAs">' +
-                '<ng-include src="example.templateUrl"></ng-include>' +
+              '<div ' +
+                ' example-wrap="example.controller + \' as \' + example.controllerAs" ' +
+                ' ng-include="example.templateUrl">' +
               '</div>',
             controller: 'ExampleController',
             controllerAs: 'example'

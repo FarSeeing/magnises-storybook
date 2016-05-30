@@ -3,7 +3,7 @@
 
   angular
     .module('storybook')
-    .provider('storyBook', 
+    .provider('storyBook',
       /* @ngInject */
       function($stateProvider) {
         var root = 'components';
@@ -23,7 +23,7 @@
            * @function add
            * @description add story with passed configuration
            * @param {object} config
-           * @param {string} config.name 
+           * @param {string} config.name
            * @param {string} [config.url=config.name] story url (relative to root)
            * @param {string} config.templateUrl story template url
            * @param {string} config.controller angular controller name for template
@@ -47,13 +47,13 @@
                   url: story.url,
                   views: {
                     'component@components': {
-                      template:                      
+                      template:
                       '<div class="row">' +
-                      '<iframe class="col s12" src="index.html?' +
+                      '<elframe class="col s12" src="index.html' +
                       '?templateUrl=' + story.templateUrl +
                       '&controller=' + story.controller +
                       '&controllerAs=' + (story.controllerAs ? story.controllerAs :'vm') + '">' +
-                      '</iframe></div>'
+                      '</elframe></div>'
                     },
                     'doc@components': {
                       template: '<div marked ng-include="\'' + story.documentationUrl + '\'"></marked>'
