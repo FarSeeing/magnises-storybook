@@ -417,15 +417,15 @@
       port: 9001
     });
   });
-  
+
   gulp.task('docs:inject', function () {
-    return gulp.src(config.inject.target)
+    return gulp.src(sourcePath + 'storybook.html')
       .pipe(plumber(onError))
       .pipe(inject(
         gulp.src(config.inject.sources.app.docs, {read: false}),
         {relative: true}
       ))
-      .pipe(gulp.dest(sourcePath + 'storybook.html'));
+      .pipe(gulp.dest(sourcePath));
   });
 
 }());
