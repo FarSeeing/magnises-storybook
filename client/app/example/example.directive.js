@@ -3,22 +3,18 @@
 
   angular
     .module('app.components')
-    .directive('exampleWrap', ['$compile', '$parse', '$window', function ($compile, $parse, $window) {
+    .directive('exampleWrap', ['$compile', '$parse', function ($compile, $parse) {
       return {
         restrict: 'A',
         terminal: true,
         priority: 100000,
         link: function (scope, elem) {
-          var w = angular.element($window);
+          var body = document.body;
 
           scope.getWindowDimensions = function () {
-            var body = document.body,
-            html = document.documentElement;
-            return Math.max( body.scrollHeight, body.offsetHeight, 
-                             html.clientHeight, html.scrollHeight, html.offsetHeight );         
+            return body.scrollHeight;
           };
           scope.$watch(scope.getWindowDimensions, onWindowResize, true);
-          scope.$on('$viewContentLoaded', onWindowResize);
 
           var controller = $parse(elem.attr('example-wrap'))(scope);
 
@@ -29,9 +25,11 @@
       };
     }]);
 
-  function onWindowResize(h) {
-    if (window.onWindowResize) {
-      window.onWindowResize(h);
+  function onWindowResize(height) {
+    var frame = window.frameElement;
+
+    if (frame) {
+      frame.style.height = height + 'px';
     }
   }
 
