@@ -322,7 +322,11 @@
       .pipe(inject(
   			es.merge(
   	      gulp.src(config.inject.sources.app.css),
-  	      gulp.src(config.inject.sources.app.js).pipe(angularSort())
+  	      gulp.src(
+            config.inject.sources.app.js
+              .concat('!' + sourcePath + 'app/storybook/**/*')
+              .concat('!' + config.inject.sources.app.docs)
+          ).pipe(angularSort())
   	    ),
   			{relative: true}
   		))
