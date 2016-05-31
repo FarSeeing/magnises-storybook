@@ -7,17 +7,17 @@
         controller: function() {
         },
         controllerAs: 'vm',
-        template: `
-        <iframe 
-          class="col s12" 
-          id="elframe"
-          style="
-            margin:0;
-            width:100%;
-            border:none;
-            overflow:hidden"
-          scrolling="no"
-        ></iframe>`,
+        template: 
+        '<iframe ' +
+        '  class="col s12" ' +    
+        '  id="elframe"' + 
+        '  style="' + 
+        '    margin:0;' + 
+        '    width:100%;' + 
+        '    border:none;' + 
+        '    overflow:hidden"' + 
+        '  scrolling="no"' + 
+        '></iframe>',
         scope: {},
         link: function(scope, element, attrs) {
           var iframe = element.find('iframe')[0];
@@ -26,7 +26,7 @@
           scope.__height = '0px';
 
           iframe.contentWindow.onWindowResize = function(h){
-            console.log('i am was choosen one! ', h);
+            console.log('new h: ', h);
             iframe.style.height = h + 'px';
           };
         }
