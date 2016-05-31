@@ -49,7 +49,7 @@
                     'component@components': {
                       template:
                       '<div class="row">' +
-                      '<elframe class="col s12" src="index.html' +
+                      '<elframe src="index.html' +
                       '?templateUrl=' + story.templateUrl +
                       '&controller=' + story.controller +
                       '&controllerAs=' + (story.controllerAs ? story.controllerAs :'vm') + '">' +

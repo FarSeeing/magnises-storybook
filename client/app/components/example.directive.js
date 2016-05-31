@@ -12,7 +12,10 @@
           var w = angular.element($window);
 
           scope.getWindowDimensions = function () {
-            return w.height();
+            var body = document.body,
+            html = document.documentElement;
+            return Math.max( body.scrollHeight, body.offsetHeight, 
+                             html.clientHeight, html.scrollHeight, html.offsetHeight );         
           };
           scope.$watch(scope.getWindowDimensions, onWindowResize, true);
           scope.$on('$viewContentLoaded', onWindowResize);
@@ -26,9 +29,9 @@
       };
     }]);
 
-  function onWindowResize() {
+  function onWindowResize(h) {
     if (window.onWindowResize) {
-      window.onWindowResize();
+      window.onWindowResize(h);
     }
   }
 

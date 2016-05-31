@@ -7,25 +7,28 @@
         controller: function() {
         },
         controllerAs: 'vm',
-        template: '<iframe id="elframe"></iframe>',
+        template: `
+        <iframe 
+          class="col s12" 
+          id="elframe"
+          style="
+            margin:0;
+            width:100%;
+            border:none;
+            overflow:hidden"
+          scrolling="no"
+        ></iframe>`,
         scope: {},
         link: function(scope, element, attrs) {
           var iframe = element.find('iframe')[0];
           iframe.src = element.attr('src');
+          var height = '0px';
+          scope.__height = '0px';
 
-         /* console.log(iframe.contentWindow.document.body);
-          iframe.onload = function(){
-            scope.$watch(
-              function(){
-              return iframe.contentWindow.document.body;//offsetHeight
-            }
-            , function(newVal){
-              console.log(newVal);
-            });
-          }*/
           iframe.contentWindow.onWindowResize = function(h){
-            iframe.height = h;
-          }
+            console.log('i am was choosen one! ', h);
+            iframe.style.height = h + 'px';
+          };
         }
       }
       return directive;
