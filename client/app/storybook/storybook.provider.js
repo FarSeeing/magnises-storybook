@@ -18,6 +18,7 @@
         function Chapter(name) {
           var o = this;
           this.name = name;
+          this.dashedName = o.name.replace(/([A-Z])/g, function($1){return "-" + $1.toLowerCase();})
           this.stories = [];
           /**
            * @function add
@@ -31,6 +32,26 @@
            * @param {string} config.documentationUrl template for documentation section
            */
           this.add = function(config) {
+            var baseUrl = 'app/components/';
+            if (typeof config == "string") {
+              var withoutController = ( config.indexOf('(NC)') != -1 );
+              if ( withoutController ){
+                config = config.replace('(NC)','');
+              };
+              var pathToDir = baseUrl + o.dashedName;
+              var filePrefix = o.name + '.' + config;
+              var autoconfig = {
+                name: config,
+                templateUrl: pathToDir + '/examples/' + filePrefix + '.doc.html',
+                controller: (withoutController ? 'ActionButtonDocController' : o.name + 'DocController'),
+                documentationUrl: pathToDir + '/doc/' + filePrefix + '.doc.md'
+              };
+              console.log(autoconfig.templateUrl);
+              console.log(autoconfig.documentationUrl);
+              o.stories.push(autoconfig);
+              return this;
+            };
+
             o.stories.push(config);
             return this;
           };

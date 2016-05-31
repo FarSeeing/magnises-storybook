@@ -1,0 +1,16 @@
+<b> selected value: </b>
+<input ng-model="selected"></input>
+<selectable-group
+  ng-model="selected"
+  options="{
+    mainLabel: 'select something',
+    values: [
+      {label: 'first', value: 'first value'},
+      {label: 'second', value: 'second value'},
+      {label: 'third', value: 'third value'}
+    ]
+  }"
+  >
+</selectable-group>
+
+

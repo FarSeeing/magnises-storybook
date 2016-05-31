@@ -4,7 +4,9 @@
     /* @ngInject */
     function(storyBookProvider){
     storyBookProvider
-      .Story('action button')
+      .Story('actionButton')
+      .add('animation(NC)')
+      .add('state(NC)')
       .add({
         name: 'action button states',
         templateUrl: 'app/components/action-button/examples/actionButton.state.doc.html',

@@ -4,7 +4,7 @@
     /* @ngInject */
     function(storyBookProvider){
       storyBookProvider
-      .Story('material input')
+      .Story('member card pocket')
       .add({
         name: 'example',
         templateUrl: 'app/components/material-input/examles/example.template.html',

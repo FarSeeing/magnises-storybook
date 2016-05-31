@@ -47,7 +47,7 @@
     var directive = {
       restrict: 'E',
       transclude: true,
-      templateUrl: 'app/components/selectableGroup.html',
+      templateUrl: 'app/components/selectable-group/selectableGroup.html',
       scope: {},
       bindToController: {
         options: '=',

@@ -6,7 +6,7 @@
  * @description
  * 
  * each time on click starts `toggleSelect()` script, it will make 
- * `select` value be equated to `value` without `$watch`
+ * `select` value be equated to `value` value
  *
  * @param {string=} value passed to `select` on click
  * @param {string=} selected current selected value
@@ -41,7 +41,7 @@
     var directive = {
       restrict: 'E',
       transclude: true,
-      templateUrl: 'app/components/selectable.html',
+      templateUrl: 'app/components/selectable/selectable.html',
       scope: {},
       bindToController: {
         value: '=',
