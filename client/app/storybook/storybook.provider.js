@@ -1,6 +1,99 @@
 ;(function() {
   'use strict';
 
+  /**
+   * all that was pretty stupid
+   * next time watch libriries first, then try to add something 
+   * you have lodash
+   *
+   * @function phrase to words
+   * @description convert phrase in format to words plain space delimited text
+   * @param {string} phrase string with phrase
+   * @param {string} format format of the string like 'camelCase' or 'sentence' or 'dash' or 'underscope'
+   * @return {string[]} actually words from the phrase consist
+   */
+  function phraseToPlain(phrase, format){
+    switch(format){
+      case 'camelCase':
+        return phrase
+          .replace(/([a-z])([A-Z])/g
+          , function($, lowerCased, upperCased) {
+              return lowerCased + ' ' + upperCased.toLowerCase()
+          }).toLowerCase();
+      case 'kebabCase':
+        return phrese
+          .replace(/(-)([a-Z])/g
+          , function($, delimiter, nextLetter) {
+              return ' ' + nextLetter
+          }).toLowerCase();
+      case 'underscopeCase':
+        return phrase
+          .replace(/(_)([a-Z]/g
+          , function($, delimiter, nextLetter) {
+              return ' ' + nextLetter
+          }).toLowerCase();
+      case 'sentence':
+        return phrase.toLowerCase();
+// hilarious
+//                    .replace(/( )([a-Z]/
+//                    , function($, delimiter, nextLetter) {
+//                        return ' ' + nextLetter
+//                    });
+
+    }
+  }
+  
+  /**
+   * @function plainTophrase
+   * @description convert space delimited text to phrase in selected format
+   * @param {string[]} words words from which completed phrase shoud consist
+   * you shoud realize that Uppercased words may not be used beacouse of format difference
+   * @param {string} format format of the output string like see `phraseToArray`
+   * @return {string} completed phrase
+   */
+  function plainToPhrase(plain, format){
+    const plainText = /( )(.)/g;
+    switch(format){
+      case 'camelcase':
+        return plain
+          .replace(plainText
+          , function($, space, anysymbol) {
+              return anysymbol.touppercase();
+          });
+      case 'kebabCase':
+        return plain
+          .replace(plainText
+          , function($, space, anysymbol) {
+              return '-' + anysymbol;
+          });
+      case 'underscopeCase':
+        return plain
+          .replace(plainText
+          , function($, space, anysymbol) {
+              return '_' + anysymbol;
+          })
+      case 'sentence':
+        return plain.replace(/^./, function($) { return $.toUpperCase()});
+      default:
+        console.error('wrong format passed: ' + format)
+        return plain;
+    }
+  }
+
+  /**
+   * @function convert
+   * @description convert one case string to another through plain text
+   * @param {string} phrase phrase to convert
+   * @param {string} inputCase input phrase case style
+   * @param {string} outputCase output phrase case style
+   * @return {string} phrase in outputCase format
+   */
+  function convert(phrase, inputCase, outputCase){
+    var plain = phraseToPlain(phrase, inputCase);
+    return plainToPhrase(plain, outputCase);
+  }  ;
+
+
   angular
     .module('storybook')
     .provider('storyBook',
@@ -14,11 +107,22 @@
          * @description contains some stories and provide publishing in controller
          * shoud have access to root property
          * @param {string} componentName name of component or chapter title (what you want to call it)
+         *
+         * @param {string} [baseUrl="app/components"] base directory for autoconfig
          */
-        function Chapter(name) {
+        function Chapter(name,baseUrl) {
           var o = this;
+          
+          this.baseUrl = baseUrl ? baseUrl : 'app/components/';
           this.name = name;
-          this.dashedName = o.name.replace(/([A-Z])/g, function($1){return "-" + $1.toLowerCase();})
+          // stupido block for name case transformation
+          // types of spelling
+          this.underScopeName = convert(o.name, 'camelCase', 'underscopeCase');
+          this.dashedName = convert(o.name, 'camelCase', 'kebabCase');
+          this.sentenceName = convert(o.name, 'camelCase', 'sentence');
+          //  .replace(/([a-z])([A-Z])/g, function($, $1, $2){return $1 + " " + $2.toLowerCase();})
+          //  .replace(/^./, function($) { return $.toUpperCase()} );
+          //array for containing stories
           this.stories = [];
           /**
            * @function add
@@ -32,28 +136,35 @@
            * @param {string} config.documentationUrl template for documentation section
            */
           this.add = function(config) {
-            var baseUrl = 'app/components/';
+            //configuration variables shoud be able to config
+            //string to config shoud be moved to separate function maybe
             if (typeof config == "string") {
-              var withoutController = ( config.indexOf('(NC)') != -1 );
-              if ( withoutController ){
-                config = config.replace('(NC)','');
-              };
-              var pathToDir = baseUrl + o.dashedName;
-              var filePrefix = o.name + '.' + config;
-              var autoconfig = {
-                name: config,
-                templateUrl: pathToDir + '/examples/' + filePrefix + '.doc.html',
-                controller: (withoutController ? 'ActionButtonDocController' : o.name + 'DocController'),
-                documentationUrl: pathToDir + '/doc/' + filePrefix + '.doc.md'
-              };
-              console.log(autoconfig.templateUrl);
-              console.log(autoconfig.documentationUrl);
-              o.stories.push(autoconfig);
+              o.stories.push(this.autoconfig(config));
               return this;
             };
-
             o.stories.push(config);
             return this;
+          }; 
+          /**
+           * @function autoconfig
+           * @param {string} name
+           * @return {object} configuration for add function
+           */
+          this.autoconfig = function(config) {
+            var withoutController = ( config.indexOf('(NC)') != -1 );
+            if ( withoutController ){
+              config = config.replace('(NC)','');
+            };
+            var pathToDir = o.baseUrl + o.dashedName + '/examples/' + config; 
+            var autoconfig = {
+              name: o.sentenceName + '\'s ' + config,
+              templateUrl: pathToDir + '/doc.html',
+              controllerUrl: pathToDir + '/doc.js',
+              controller: (withoutController ? 'ActionButtonDocController' : o.name + 'DocController'),
+              documentationUrl: pathToDir + '/doc.md'
+            };
+            //console.log(autoconfig);
+            return autoconfig;
           };
           /**
            * publish stories in roteProvider
