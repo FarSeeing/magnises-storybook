@@ -135,11 +135,11 @@
            * @param {string} [config.controllerAs='vm'] alias for controller in angular
            * @param {string} config.documentationUrl template for documentation section
            */
-          this.add = function(config) {
+          this.add = function(config, docs) {
             //configuration variables shoud be able to config
             //string to config shoud be moved to separate function maybe
             if (typeof config == "string") {
-              o.stories.push(this.autoconfig(config));
+              o.stories.push(this.autoconfig(config, docs));
               return this;
             };
             o.stories.push(config);
@@ -150,20 +150,21 @@
            * @param {string} name
            * @return {object} configuration for add function
            */
-          this.autoconfig = function(config) {
-            var withoutController = ( config.indexOf('(NC)') != -1 );
+          this.autoconfig = function(name, customDocumentation) {
+            var withoutController = ( name.indexOf('(NC)') != -1 );
             if ( withoutController ){
-              config = config.replace('(NC)','');
+              name = name.replace('(NC)','');
             };
-            var pathToDir = o.baseUrl + o.dashedName + '/examples/' + config; 
+            var baseDir = o.baseUrl + o.dashedName + '/examples/';
+            var pathToDir = baseDir + name; 
             var autoconfig = {
-              name: o.sentenceName + '\'s ' + config,
+              name: o.sentenceName + '\'s ' + name,
               templateUrl: pathToDir + '/doc.html',
               controllerUrl: pathToDir + '/doc.js',
               controller: (withoutController ? 'ActionButtonDocController' : o.name + 'DocController'),
-              documentationUrl: pathToDir + '/doc.md'
+              documentationUrl: baseDir + (customDocumentation ? customDocumentation : name) + '/doc.md'
             };
-            //console.log(autoconfig);
+            //console.log(autoname);
             return autoconfig;
           };
           /**

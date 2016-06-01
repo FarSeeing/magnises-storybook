@@ -5,7 +5,7 @@
     function(storyBookProvider){
     storyBookProvider
       .Story('actionButton')
-      .add('animation(NC)')
+      .add('animation(NC)', 'state')
       .add('state(NC)')
       .add({
         name: 'action button states',
