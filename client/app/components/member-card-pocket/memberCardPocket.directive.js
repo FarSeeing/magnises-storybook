@@ -4,7 +4,7 @@
  * @restrict E
  *
  * @description
- * 
+ *
  * @param {string=} firstName member's first name
  * @param {string=} lastName member's last name
  *
@@ -28,7 +28,7 @@
   function memberCardPocket() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/memberCardPocket.html',
+      templateUrl: 'app/components/member-card-pocket/memberCardPocket.html',
       scope: {},
       bindToController: {
         firstName: '=',

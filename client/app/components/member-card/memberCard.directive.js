@@ -13,8 +13,8 @@
  *
  <example>
    <file name="index.html">
-     <member-card 
-       first-name="Glenjin" 
+     <member-card
+       first-name="Glenjin"
        last-name="Korkovich">
      </member-card>
    </file>
@@ -32,7 +32,7 @@
   function memberCard() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/memberCard.html',
+      templateUrl: 'app/components/member-card/memberCard.html',
       scope: {},
       bindToController: {
         firstName: '=',
