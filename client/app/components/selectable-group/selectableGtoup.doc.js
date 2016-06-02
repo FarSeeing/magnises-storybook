@@ -3,6 +3,6 @@
   /* @ngIngect */
   .config(function(storyBookProvider){
     storyBookProvider.Story('selectableGroup')
-    .add('grouping selects(NC)').publish();
+    .add('groupingSelects(NC)').publish();
   });
 })();

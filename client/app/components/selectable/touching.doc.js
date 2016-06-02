@@ -3,6 +3,8 @@
   .config(function(storyBookProvider){
     storyBookProvider.Story('selectable')
     .add('touching(NC)')
+    .add('unckekingAvailability(NC)')
+    .add('directiveParams(NC)')
     .publish();
   })
 })();
