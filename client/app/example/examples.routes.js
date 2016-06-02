@@ -10,14 +10,13 @@
     $stateProvider
       .state({
         name: 'examples',
-        url: '/index.html?templateUrl&controller&controllerAs',
+        url: '/index.html?templateUrl',
         views: {
           'main@': {
             template:
-              '<div ' +
-                ' example-wrap="example.controller + \' as \' + example.controllerAs" ' +
-                ' ng-include="example.templateUrl">' +
-              '</div>',
+              '<example-wrap>' +
+                '<div ng-include="example.templateUrl"></div>' +
+              '</example-wrap>',
             controller: 'ExampleController',
             controllerAs: 'example'
           }

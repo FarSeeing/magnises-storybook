@@ -7,7 +7,7 @@
   /* @ngInject */
   function actionButtonConfig(StoryBookProvider) {
     StoryBookProvider
-      .addChapter('member-card-pocket')
+      .addChapter('member-card')
       .addStory('common')
       .publish();
   }
