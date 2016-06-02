@@ -60,7 +60,7 @@
               '</elframe></div>'
             },
             'doc@components': {
-              template: '<div marked ng-include="\'' + this.documentationUrl + '\'"></marked>'
+              template: '<div marked ng-include="\'' + this.documentationUrl + '\'"></div>'
             }
           }
         });

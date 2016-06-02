@@ -10,15 +10,16 @@
             id="storybook-search"
             type="text"
             ng-model="query"
+            ng-change="vm.filterChapters(query)"
           />
           <label for="storybook-search">Search</label>
         </div>
         <ul>
           <li ng-repeat="chapter in vm.chapters" >
-            <div ng-if="(chapter.stories | filter:query).length > 0">
-              <h4>{{chapter.name}}</h4>
+            <div>
+              <h5>{{chapter.name}}</h4>
               <ul>
-                <li ng-repeat="story in chapter.stories | filter:query">
+                <li ng-repeat="story in chapter.filteredStories ">
                   <a ng-href="{{story.url}}">{{story.name}}</a>
                 </li>
               </ul>
